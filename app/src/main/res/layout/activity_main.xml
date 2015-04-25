@@ -1,0 +1,21 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <styleroom.com.styleroom.HorizontialListView
+        android:id="@+id/suggestionView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        >
+
+    </styleroom.com.styleroom.HorizontialListView>
+
+    <FrameLayout
+        android:layout_below="@+id/suggestionView"
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
+
+</RelativeLayout>
