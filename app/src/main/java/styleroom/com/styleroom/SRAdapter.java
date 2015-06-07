@@ -9,22 +9,24 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.net.ContentHandlerFactory;
 import java.util.ArrayList;
 import java.util.List;
+
+import styleroom.com.styleroom.model.Product;
+import styleroom.com.styleroom.model.ScreenState;
 
 /**
  * Created by neeraj.singh on 25/04/15.
  */
 public class SRAdapter extends BaseAdapter {
 
-    ArrayList<ScreenState> objectList;
+    ArrayList<Product> objectList;
     FragmentChangeListner listener;
     Context mContext;
 
-    public SRAdapter(Context context,List<ScreenState> objects,FragmentChangeListner listener)
+    public SRAdapter(Context context,List<Product> objects,FragmentChangeListner listener)
     {
-        this.objectList = (ArrayList<ScreenState>)objects;
+        this.objectList = (ArrayList<Product>)objects;
         this.listener = listener;
         this.mContext = context;
     }
@@ -49,25 +51,10 @@ public class SRAdapter extends BaseAdapter {
         TextView site = (TextView) retval.findViewById(R.id.site);
         TextView from = (TextView) retval.findViewById(R.id.from);
         ImageView image = (ImageView) retval.findViewById(R.id.image);
-        from.setText(objectList.get(position).getFrom());
-        site.setText(objectList.get(position).getSite());
+        from.setText(objectList.get(position).getSuggestedBy().getName());
+        site.setText(objectList.get(position).getProvider());
         Drawable draw = null;
-        switch (objectList.get(position).getImageNumber()){
-            case 0:
-                draw = mContext.getDrawable(R.drawable.fkimage1);
-                break;
-            case 1:
-                draw = mContext.getDrawable(R.drawable.fkimage2);
-                break;
-            case 2:
-                draw = mContext.getDrawable(R.drawable.fkimage3);
-                break;
-            case 3:
-                draw = mContext.getDrawable(R.drawable.fkimage4);
-                break;
-            default:
-                draw = mContext.getDrawable(R.drawable.fkimage5);
-        }
+        draw = mContext.getResources().getDrawable(StringUtil.getImageId(objectList.get(position).getImageId()));
         image.setImageDrawable(draw);
         return retval;
     }
