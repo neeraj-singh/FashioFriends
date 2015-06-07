@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="200dp">
+    <ScrollView
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_above="@+id/boxlayout"
+        >
+
+        <TextView
+            android:id="@+id/chattext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+
+            android:nestedScrollingEnabled="true"/>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/boxlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        >
+        <EditText
+            android:id="@+id/chatbox"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:inputType="text"
+            android:background="@drawable/editbox_back"
+            android:hint="Chat here"
+            android:paddingLeft="10dp"
+            android:imeOptions="actionDone"
+            />
+        <!--<Button-->
+            <!--android:id="@+id/btnSend"-->
+            <!--android:text="send"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--/>-->
+    </LinearLayout>
+
+</RelativeLayout>
